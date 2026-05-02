@@ -1,0 +1,38 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.todo_app"
+    compileSdk = 36  // CHANGE: 35 -> 36
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17  // CHANGE: 11 -> 17
+        targetCompatibility = JavaVersion.VERSION_17  // CHANGE: 11 -> 17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"  // CHANGE: VERSION_11 -> "17"
+    }
+
+    defaultConfig {
+        applicationId = "com.example.todo_app"
+        minSdk = flutter.minSdkVersion  // CHANGE: minSdkVersion -> minSdk
+        targetSdk = 36  // CHANGE: 35 -> 36
+        versionCode = 1
+        versionName = "1.0"
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
